@@ -4,14 +4,18 @@
 To design and implement a question-answering chatbot capable of processing and extracting information from a provided PDF document using LangChain, and to evaluate its effectiveness by testing its responses to diverse queries derived from the document's content.
 
 ### PROBLEM STATEMENT:
+To develop a PDF-based question-answering chatbot that allows users to upload PDF documents and ask questions about their content. The system uses LangChain, HuggingFace embeddings, FAISS vector database, and Groq LLM to retrieve relevant information and generate answers through an interactive Panel interface.
 
 ### DESIGN STEPS:
 
 #### STEP 1:
+Load the PDF document using PyPDFLoader and split its content into smaller chunks using RecursiveCharacterTextSplitter. Generate embeddings using HuggingFaceEmbeddings.
 
 #### STEP 2:
+Store the document embeddings in a FAISS vector database and create a retriever to find the top 4 relevant document chunks based on the user's question.
 
 #### STEP 3:
+Pass the retrieved context, chat history, and user question to the Groq language model using PromptTemplate. Generate answers and display them through the Panel GUI along with source documents.
 
 ### PROGRAM:
 ```python
@@ -306,7 +310,11 @@ app = pn.Column(
 app.servable()
 
 pn.serve(app, show=True)
+```
 
 ### OUTPUT:
+<img width="1535" height="818" alt="image" src="https://github.com/user-attachments/assets/5cdc6716-e5e9-46cb-80eb-c38d7039db13" />
+
 
 ### RESULT:
+Thus, a PDF-based question-answering chatbot was successfully developed using LangChain, HuggingFace embeddings, FAISS vector database, and Groq LLM. The application processes PDF documents, retrieves relevant information, generates answers to user queries, and displays the responses through an interactive Panel interface.
